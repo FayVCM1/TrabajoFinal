@@ -1,11 +1,45 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      inicio
+      Bienvenido a TuDomicilio
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-title>
+      <h3>Total del dia</h3><p></p>
+      <h3>Total del mes</h3><p></p>
+  </ion-title>
 
+  <ion-item-sliding *ngFor="let item of Domicilios" id="item100">
+    <ion-item href="#">
+      <ion-label>
+        <h2>Repartidor: {{item.repartidor}}</h2>
+        <p>Dirección: {{item.direccion}}</p>
+        <p>Estado: {{item.estado}}</p>
+      </ion-label>
+      <ion-note slot="end">
+        datos de entrega: {{item.date}}
+      </ion-note>
+    </ion-item>
+
+    <ion-item-options side="start">
+      <ion-item-option>
+        <ion-icon slot="icon-only" name="heart"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+
+    <ion-item-options side="end">
+      <ion-item-option color="danger">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-item-option>
+      <ion-item-option>
+        <ion-icon slot="icon-only" name="star"></ion-icon>
+      </ion-item-option>
+      <ion-item-option color="success">
+        <ion-icon slot="icon-only" name="card-outline"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
 </ion-content>

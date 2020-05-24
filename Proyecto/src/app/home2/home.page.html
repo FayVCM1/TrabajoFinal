@@ -1,0 +1,71 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Tareas</ion-title>
+    
+    <ion-buttons slot="end" >
+      <ion-button color="danger" (click)="eliminarTodoClick()">
+        <ion-icon slot="start" name="trash-outline"></ion-icon>
+        Borrar Lista
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+  
+<ion-content [fullscreen]="true">
+  <ion-item-divider>
+    <ion-label>Nueva tarea</ion-label>
+  </ion-item-divider>
+
+  <ion-item>
+    <ion-label stacked>Titulo:</ion-label>
+    <ion-input type="text" [(ngModel)]="addTareas.nombre"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label stacked>Detalle:</ion-label>
+    <ion-input type="text" [(ngModel)]="addTareas.detalle"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Hora:</ion-label>
+    <ion-input type="text" placeholder="(12:00 m)" [(ngModel)]="addTareas.date"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label stacked>Nivel:</ion-label>
+    <ion-input type="text" placeholder="(leve, a tiempo, prioridad)" [(ngModel)]="addTareas.nivel"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-button color="success" (click)="guardarClick(addTareas)">
+      <ion-icon slot="start" name="trash-outline"></ion-icon>
+      Agregar
+    </ion-button>
+  </ion-item>
+
+  <ion-item-divider>
+    <ion-label>Lista de pendientes:</ion-label>
+  </ion-item-divider>
+
+    <ion-item-sliding *ngFor="let t of Tareas">
+      <ion-item>
+        <ion-icon slot="start" name="person-circle" color="primary"></ion-icon>
+        <ion-label class="ion-text-wrap">
+          <h2>{{ t.nombre }}</h2>
+          <p>{{ t.detalle }}</p>
+          <h3>{{ t.date }}</h3>
+          <h4>Nivel: 
+            <ion-note>{{ t.nivel }}</ion-note>
+          </h4>
+        </ion-label>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="primary" (click)="editarClick(t)" [hidden]="visibleEditar" expand="block" fill="clear" shape="round">Edit</ion-item-option>
+        <ion-item-option color="success" (click)="actualizarClick(t.nombre)" expand="block" fill="clear" shape="round">Actu</ion-item-option>
+        <ion-item-option color="danger" 
+        (ngModelChange)="eliminarClick(t)" expand="block" fill="clear" shape="round">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+</ion-content>
