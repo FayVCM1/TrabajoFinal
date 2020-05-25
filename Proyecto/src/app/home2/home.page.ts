@@ -12,7 +12,7 @@ export class HomePage {
   addTareas = {
     nombre: "",
     detalle: "",
-    date: "",
+    articulo: "",
     nivel: ""
   };
 
@@ -24,31 +24,31 @@ export class HomePage {
       {
         nombre: 'Levantarse',
         detalle: 'Es hora de levantarte pinche peresos@',
-        date: '8:00 AM',
+        articulo: '8:00 AM',
         nivel: 'Leve'
       },
       {
         nombre: 'Desayunar',
         detalle: 'Es la comida mas importante del día',
-        date: '6:12 AM',
+        articulo: '6:12 AM',
         nivel: 'Prioridad'
       },
       {
         nombre: 'Almorzar',
         detalle: 'Te dará energias para el resto del día',
-        date: '12:00 M',
+        articulo: '12:00 M',
         nivel: 'A tiempo'
       },
       {
         nombre: 'Cenar',
         detalle: 'Comer es importante, es tu tercer alimento',
-        date: '7:00 PM',
+        articulo: '7:00 PM',
         nivel: 'Prioridad'
       },
       {
         nombre: 'Dormir',
         detalle: 'Sigue acostandote tarde y veráz cuando llegues a viejo',
-        date: '12:00 PM',
+        articulo: '12:00 PM',
         nivel: 'Leve'
       },
     ];
@@ -59,7 +59,7 @@ export class HomePage {
     this.addTareas = {
       nombre: "",
       detalle: "",
-      date: "",
+      articulo: "",
       nivel: ""
     };
   }
@@ -69,7 +69,7 @@ export class HomePage {
     this.addTareas = {
       nombre: tarea.nombre,
       detalle: tarea.detalle,
-      date: tarea.date,
+      articulo: tarea.date,
       nivel: tarea.nivel
     };
   }
@@ -80,7 +80,7 @@ export class HomePage {
     this.addTareas = {
       nombre: tarea.nombre,
       detalle: tarea.detalle,
-      date: tarea.date,
+      articulo: tarea.date,
       nivel: tarea.nivel
     };
   }
