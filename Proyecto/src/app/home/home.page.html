@@ -7,52 +7,50 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <ion-title></ion-title>
     <ion-title>
-        <h3>ingresar pedidos </h3>
+        <h3>Ingresar domicilio</h3>
 
         <ion-item>
-            <ion-label position="floating">direccion</ion-label>
+            <ion-label position="floating">Direccion</ion-label>
             <ion-input id="in-direccion" [(ngModel)]="newDomicilio.direccion"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label position="floating">articulo</ion-label>
+            <ion-label position="floating">Articulo</ion-label>
             <ion-input id="in-articulo" [(ngModel)]="newDomicilio.articulo"></ion-input>
         </ion-item>
 
-        <ion-button (click)="addDomicilio()" id="addDomicilio">agregar pedido</ion-button>
-
+        <ion-button (click)="agregarDomicilio()" id="addDomicilio">Agregar domicilio</ion-button>
     </ion-title>
 
-    <ion-title><h3>lista de domicilios</h3></ion-title>
+    <ion-item-divider>
+        <ion-label>Lista de domicilios</ion-label>
+    </ion-item-divider>
+
     <div id="listaDeDomicilios">
         <ion-item *ngFor="let domicilio of Domicilios" id="item100">
             <ion-item id="para-{{domicilio.direccion}}">
                 <ion-label>
-                    <h2>direccion: {{domicilio.direccion}}</h2>
-                    <p>estado: {{domicilio.estado}}</p>
-                    <p>articulo: {{domicilio.articulo}}</p>
+                    <h2>Direccion: {{domicilio.direccion}}</h2>
+                    <p>Estado: {{domicilio.estado}}</p>
+                    <p>Articulo: {{domicilio.articulo}}</p>
                 </ion-label>
-
             </ion-item>
-            <ion-item-option side="start" color="danger" (click)="cancelarDomicilio(domicilio)"
+            
+            <ion-item-option side="end" color="danger" (click)="cancelarDomicilio(domicilio)"
                              *ngIf="domicilio.estado=='pendiente'"
                              id="eliminar-{{domicilio.direccion}}">
                 <ion-icon slot="icon-only" name="trash"></ion-icon>
             </ion-item-option>
-
-
-            <ion-item-option side="end" (click)="updateDomicilio(domicilio,'entregado')"
+            <ion-item-option side="end" (click)="cambiarEstadoDomicilio(domicilio,'entregado')"
                              *ngIf="domicilio.estado=='pendiente'"
                              id="entregar-{{domicilio.direccion}}">
                 <ion-icon slot="icon-only" name="star"></ion-icon>
             </ion-item-option>
-            <ion-item-option side="end"  color="success" (click)="updateDomicilio(domicilio,'pagado')"
+            <ion-item-option side="end"  color="success" (click)="cambiarEstadoDomicilio(domicilio,'pagado')"
                              *ngIf="domicilio.estado=='entregado'" id="pagar-{{domicilio.direccion}}">
                 <ion-icon slot="icon-only" name="card-outline"></ion-icon>
             </ion-item-option>
-
         </ion-item>
     </div>
 </ion-content>

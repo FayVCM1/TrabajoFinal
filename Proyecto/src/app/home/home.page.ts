@@ -18,7 +18,7 @@ export class HomePage {
         this.Domicilios = [];
     }
 
-    addDomicilio() {
+    agregarDomicilio() {
         this.Domicilios.push(this.newDomicilio);
         this.newDomicilio = {
             repartidor: '',
@@ -33,7 +33,7 @@ export class HomePage {
         this.Domicilios.splice(index, 1);
     }
 
-    updateDomicilio(domicilio, estado) {
+    cambiarEstadoDomicilio(domicilio, estado) {
         let index = this.Domicilios.indexOf(domicilio);
         this.Domicilios[index].estado = estado;
 
