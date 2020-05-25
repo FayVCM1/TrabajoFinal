@@ -1,48 +1,42 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+    selector: 'app-home',
+    templateUrl: 'home.page.html',
+    styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  Domicilios = new Array();
+    Domicilios = new Array();
+    newDomicilio = {
+        repartidor: '',
+        direccion: '',
+        estado: 'pendiente',
+        articulo: ''
+    };
 
-  constructor() {
-    this.Domicilios = [
-      {
-        repartidor: 'Andres',
-        direccion: 'Entregar en el cojunnto 43 manzana 4, apartamento 13',
-        estado: 'entregado',
-        date: 'jueves 8:00 AM'
-      },
-      {
-        repartidor: 'Juan',
-        direccion: 'Entregar en el cojunnto 43 manzana 4, apartamento 13',
-        estado: 'entregado',
-        date: 'viernes 6:12 AM'
-      },
-      {
-        repartidor: 'Andres',
-        direccion: 'Entregar en el cojunnto 43 manzana 4, apartamento 13',
-        estado: 'entregado',
-        date: 'hoy 12:00 M'
-      },
-      {
-        repartidor: 'Alex',
-        direccion: 'Entregar en el cojunnto 43 manzana 4, apartamento 13',
-        estado: 'entregado',
-        date: 'martes 7:00 PM'
-      },
-      {
-        repartidor: 'Maria',
-        direccion: 'Entregar en el cojunnto 43 manzana 4, apartamento 13',
-        estado: 'entregado',
-        date: 'hoy 12:00 PM'
-      },
-    ];
-  }
+    constructor() {
+        this.Domicilios = [];
+    }
 
+    addDomicilio() {
+        this.Domicilios.push(this.newDomicilio);
+        this.newDomicilio = {
+            repartidor: '',
+            direccion: '',
+            estado: 'pendiente',
+            articulo: ''
+        };
+    }
 
+    cancelarDomicilio(domicilio) {
+        let index = this.Domicilios.indexOf(domicilio);
+        this.Domicilios.splice(index, 1);
+    }
+
+    updateDomicilio(domicilio, estado) {
+        let index = this.Domicilios.indexOf(domicilio);
+        this.Domicilios[index].estado = estado;
+
+    }
 
 }
