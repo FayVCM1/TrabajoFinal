@@ -9,7 +9,7 @@ driver.get('http://localhost:8100/home')
 time.sleep(10)
 
 
-def test_addDomicilios1():
+def test_agregarDomicilio1():
     direccion = driver.find_element_by_id("in-direccion")
     direccion = direccion.find_element_by_class_name("native-input")
     articulo = driver.find_element_by_id("in-articulo")
@@ -24,7 +24,7 @@ def test_addDomicilios1():
     assert 'pendiente' in domicilio.text
 
 
-def test_addDomicilios2():
+def test_agregarDomicilio2():
     direccion = driver.find_element_by_id("in-direccion")
     direccion = direccion.find_element_by_class_name("native-input")
     articulo = driver.find_element_by_id("in-articulo")
